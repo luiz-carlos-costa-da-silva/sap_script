@@ -1,6 +1,12 @@
 from win32com import client
 
 class Sap_Script(object):
+    '''
+        Classe responsável pela conexão e gerenciamento
+        de sessão do SAP GUI.
+        Cada sessão é uma janela SAP aberta. A primeira 
+        sessão(janela) sempre começa na posição zero.
+    '''
     def __init__(self) -> None:
         self.sap = None
         self.app = None
