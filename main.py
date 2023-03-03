@@ -2,7 +2,7 @@
 Autor: Luiz Carlos Costa da Silva
 Data da criação: 01/02/2023
 Objetivo do projeto:
-Gerar relatório logístico diário e enviar a diretoria e a gerencia.
+Gerar relatório logístico diário e enviar a diretoria e gerencia de maneira automatizada.
 '''
 
 from sap.script import Sap_Script
