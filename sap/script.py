@@ -7,11 +7,18 @@ class Sap_Script(object):
         self.con = None
 
     def isCDispatch(self, obj):
+        '''
+            Checa se objeto passado como parâmetro é do
+            tipo CDispatch.
+        '''
         if type(obj) == client.CDispatch:
             return True
         return False
 
     def open(self):
+        '''
+            Faz a conexão com SAP GUI.
+        '''
         try:
 
             self.sap = client.GetObject('SAPGUI')
@@ -31,11 +38,17 @@ class Sap_Script(object):
             raise Exception('ERRO NA CONEXÃO COM SAP: [{e}]')
 
     def close(self):
+        '''
+            Fecha a conexão com SAP GUI.
+        '''
         self.con = None
         self.app = None
         self.con = None
 
     def __len__(self):
+        '''
+            Obtém a quantidade de sessão aberto no SAP GUI.
+        '''
         length = 0
         if self.isCDispatch(self.con):
             try:
@@ -45,6 +58,11 @@ class Sap_Script(object):
         return length
 
     def get_session_by_index(self, index):
+        '''
+            Se o index não for maior que a quantidade de sessão
+            aberto, o método retorna a sessão de acordo com a sua
+            posição(index) passada. A posição da sessão começa a partir do zero.
+        '''
         session = None
         try: 
             if self.isCDispatch(self.con) and index < len(self):
